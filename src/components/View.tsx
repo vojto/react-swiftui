@@ -5,6 +5,7 @@ export interface Props {
   frame?: {width?: number; height?: number};
   padding?: true | number; // TODO: This is now shared with VStack and HStack, needs to be refactored
   border?: {color: ColorType; width: number; cornerRadius?: number};
+  shadow?: {color: ColorType, radius: number, x: number, y: number};
 
   style?: React.CSSProperties;
   onClick?: React.MouseEventHandler;
@@ -38,6 +39,11 @@ export const View: React.FC<Props> = (props) => {
     style.border = `${width}px solid ${color}`;
     style.borderRadius =
       cornerRadius !== undefined ? `${cornerRadius}px` : undefined;
+  }
+
+  if (props.shadow !== undefined) {
+    const {color, radius, x, y} = props.shadow;
+    style.boxShadow = `${x}px ${y}px ${radius}px ${color}`;
   }
 
   const allProps = {style, children: props.children};
