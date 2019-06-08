@@ -1,0 +1,4 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "object-literal-sort-keys": false,
+}

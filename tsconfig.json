@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    // Support JSX in TypeScript files
+    "jsx": "react",
+
+    // ES5, because we're building package with browser compatibility
+    "target": "es5",
+
+    // Add libraries to get some newer JS functionality
+    // (for example Sets, which are used in this library)
+    "lib": ["es2015", "dom"],
+
+    // ...
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+
+    // How to resolve non-relative imports
+    "baseUrl": "./src",
+
+    // Generate into lib
+    "outDir": "./dist",
+
+    // Some strict checks
+    "strict": true,
+    "strictFunctionTypes": false, // Won't work with our Reducers
+
+    // Generate declaration files (so that module can be used with typings)
+    "declaration": true,
+    "declarationDir": "./dist"
+  },
+  "include": ["src", "node_modules/*", "src/declarations.d.ts"],
+  "exclude": ["node_modules"]
+}
